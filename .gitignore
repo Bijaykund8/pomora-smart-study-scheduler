@@ -1,6 +1,14 @@
+# dependencies
 node_modules
+
+# environment variables
 .env
-/dist
-/build
-firebase-debug.log
-.DS_Store
+
+# build output
+dist
+build
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
