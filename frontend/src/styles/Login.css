@@ -1,0 +1,157 @@
+.login-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  overflow: hidden;
+}
+
+/* LEFT SIDE */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-left h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.login-left p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.login-left img {
+  width: 80%;
+  max-width: 350px;
+}
+
+/* RIGHT SIDE CARD */
+.login-card {
+  flex: 1;
+  padding: 60px 50px;
+}
+
+.login-card h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #111827;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.login-card input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.login-options a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.login-btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #1e40af;
+}
+
+.signup-text {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-text span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password:hover {
+  color: #2563eb;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .login-left img {
+    width: 60%;
+  }
+}
