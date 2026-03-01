@@ -1,16 +1,178 @@
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* =========================
+   LIGHT MODE (DEFAULT)
+========================= */
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #111827;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* =========================
+   DARK MODE
+   (Works with document.documentElement.classList.add("dark"))
+========================= */
+.dark body {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
+}
+
+/* Glass card dark */
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  color: #f1f5f9;
+}
+
+/* Inputs dark */
+.dark input,
+.dark textarea {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid #334155;
+}
+
+/* Buttons dark */
+.dark button {
+  opacity: 0.95;
+}
+
+/* =========================
+   IMAGE RESET
+========================= */
 img {
   max-width: 100%;
   display: block;
+}
+
+/* =========================
+   SCROLLBAR (Chrome / Edge)
+========================= */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 transparent;
+}
+
+/* =========================
+   BUTTON / INPUT FOCUS
+========================= */
+button {
+  font-family: inherit;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+::selection {
+  background: #bfdbfe;
+  color: #0f172a;
+}
+
+.dark ::selection {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float1 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(40px); }
+}
+
+@keyframes float2 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+}
+
+@keyframes meshMove {
+  0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+  50% { background-position: 50% 30%, 60% 70%, 40% 60%; }
+  100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+/* =========================
+   DARK MODE CARD SUPPORT
+========================= */
+
+body.dark .card,
+body.dark .glass-card,
+body.dark .focus-card,
+body.dark .stats-card {
+  background: rgba(30, 41, 59, 0.85) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #f1f5f9;
+}
+
+body.dark .card h1,
+body.dark .card h2,
+body.dark .card h3,
+body.dark .card p {
+  color: #f8fafc;
+}
+
+body.dark .card-subtext {
+  color: #cbd5e1;
 }

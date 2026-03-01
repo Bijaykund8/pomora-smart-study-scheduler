@@ -1,13 +1,14 @@
-import "../styles/Signup.css";
-import heroImage from "../images/pomora-hero.png";
+import "../styles/Login.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup({ darkMode }) {
   const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,7 +23,6 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup button clicked");
 
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
@@ -38,87 +38,92 @@ export default function Signup() {
 
       alert("Signup successful! Please login.");
       navigate("/login");
+
     } catch (error) {
       alert(error.response?.data?.message || "Signup failed");
     }
   };
 
   return (
-    <div className="signup-page">
-      <div className="signup-container">
+    <div className={`login-page ${darkMode ? "dark-mode" : ""}`}>
+      <div className="glass-card">
+        <h2 className="login-title">Create Account</h2>
 
-        {/* LEFT SIDE */}
-        <div className="signup-left">
-          <h1>Join Pomora Today 🚀</h1>
-          <p>
-            Create your account and start managing your study time
-            with smart Pomodoro sessions.
-          </p>
-          <img src={heroImage} alt="Pomora Illustration" />
-        </div>
+        <p className="login-subtitle">
+          Join Pomora and start managing your productivity smarter.
+        </p>
 
-        {/* RIGHT SIDE */}
-        <div className="signup-card">
-          <h2>Create an Account</h2>
-
-          <form onSubmit={handleSubmit} noValidate>
-            <label>Full Name</label>
+        <form onSubmit={handleSubmit}>
+          {/* Name */}
+          <div className="input-group">
             <input
               type="text"
               name="name"
-              placeholder="Enter your full name"
+              placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Email</label>
+          {/* Email */}
+          <div className="input-group">
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
             />
+          </div>
 
-            {/* PASSWORD WITH EYE ICON */}
-            <label>Password</label>
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Create a password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <span
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
-
-            {/* CONFIRM PASSWORD */}
-            <label>Confirm Password</label>
+          {/* Password */}
+          <div className="input-group">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Create Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
+
+          {/* Confirm Password */}
+          <div className="input-group">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
-              placeholder="Confirm your password"
+              placeholder="Confirm Password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
             />
+            <span
+              className="toggle-password"
+              onClick={() =>
+                setShowConfirmPassword(!showConfirmPassword)
+              }
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-            <button type="submit" className="signup-btn">Sign Up</button>
-          </form>
+          <button type="submit" className="login-btn">
+            Sign Up
+          </button>
+        </form>
 
-          <p className="login-text">
-            Already have an account? <Link to="/login">Login</Link>
-          </p>
-        </div>
+        <p className="signup-text">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );

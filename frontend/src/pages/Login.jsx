@@ -1,11 +1,10 @@
 import "../styles/Login.css";
-import logo from "../images/pomora-hero.png";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ darkMode }) {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,83 +19,73 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login clicked");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        formData
+      );
 
-      // Save token
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("user", JSON.stringify(res.data));
 
-      alert("Login successful!");
-      navigate("/"); // change to /dashboard later if you make one
+      navigate("/feed");
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        
-        {/* LEFT SIDE */}
-        <div className="login-left">
-          <h1>Welcome Back to Pomora 🍅</h1>
-          <p>
-            Stay focused. Stay productive.  
-            Log in to continue your smart study sessions.
-          </p>
-          <img src={logo} alt="Pomora Illustration" />
-        </div>
+    <div className={`login-page ${darkMode ? "dark-mode" : ""}`}>
+      <div className="glass-card">
+        <h2 className="login-title">Sign in</h2>
 
-        {/* RIGHT SIDE */}
-        <div className="login-card">
-          <h2>Login to your account</h2>
+        <p className="login-subtitle">
+          Make a new doc to bring your words, data,
+          and teams together. For free.
+        </p>
 
-          <form onSubmit={handleSubmit} noValidate>
-            <label>Email</label>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Password</label>
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <span
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
+          <div className="input-group password-field">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-            <div className="login-options">
-              <label>
-                <input type="checkbox" /> Remember me
-              </label>
-              <Link to="/forgot-password">Forgot password?</Link>
-            </div>
+          <div className="login-options">
+            <Link to="/forgot-password">Forgot password?</Link>
+          </div>
 
-            <button type="submit" className="login-btn">Login</button>
-          </form>
+          <button type="submit" className="login-btn">
+            Get Started
+          </button>
+        </form>
 
-          <p className="signup-text">
-            Don’t have an account? <Link to="/signup">Sign Up</Link>
-          </p>
-        </div>
+        <p className="signup-text">
+          Don’t have an account? <Link to="/signup">Sign Up</Link>
+        </p>
       </div>
     </div>
   );

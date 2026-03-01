@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;        /* remove extra spacing */
+  height: 100vh;     /* full viewport */
 }
 
 .logo {
@@ -39,4 +38,31 @@
 
 .read-the-docs {
   color: #888;
+}
+@keyframes float1 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(40px, 30px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(-40px, -30px); }
+  100% { transform: translate(0px, 0px); }
+}
+@keyframes meshMove {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  50% {
+    background-position: 50% 30%, 60% 70%, 40% 60%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
