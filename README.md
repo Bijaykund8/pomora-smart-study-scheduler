@@ -3,13 +3,14 @@ and track study performance with real-time insights.
 
 It combines task planning, session tracking, and analytics into a single intuitive dashboard to improve focus and consistency.
 
-🚀 Key Features
-  ⏱️ Pomodoro Timer – Structured focus sessions for deep work
-  📝 Task Management – Create, update, and track daily study tasks
-  📊 Interactive Dashboard – Visualize productivity and progress
-  🔔 Activity Feed – Monitor recent study actions in real-time
-  📅 Calendar View – Track consistency and study streaks
-  🔐 Authentication System – Secure login & user management
+## 🚀 Key Features
+
+- ⏱️ Pomodoro Timer – Structured focus sessions for deep work  
+- 📝 Task Management – Create, update, and track daily study tasks  
+- 📊 Interactive Dashboard – Visualize productivity and progress  
+- 🔔 Activity Feed – Monitor recent study actions in real-time  
+- 📅 Calendar View – Track consistency and study streaks  
+- 🔐 Authentication System – Secure login & user management  
 
 🖥️ Screenshots:-
 
@@ -17,13 +18,14 @@ It combines task planning, session tracking, and analytics into a single intuiti
 <img src="screenshots/home.png" width="800"/>
 
 🔐 Authentication
-<img src="screenshots/signIn.png" width="400"/> <img src="screenshots/signUp.png" width="400"/>
+<img src="screenshots/signIn.png" width="800"/> 
+<img src="screenshots/signUp.png" width="800"/>
 
 📊 Dashboard Overview
 <img src="screenshots/dashBoard1.png" width="800"/> <img src="screenshots/dashBoard2.png" width="800"/>
 
 🔑 Password Recovery
-<img src="screenshots/forgotPassword.png" width="400"/>
+<img src="screenshots/forgotPassword.png" width="800"/>
 
 🔓 Logout
 <img src="screenshots/logOut.png" width="800"/>
@@ -55,10 +57,11 @@ It combines task planning, session tracking, and analytics into a single intuiti
 - Vite (Frontend Build Tool)
 
 📈 Future Enhancements:-
-  📱 Fully responsive mobile UI
-  🔔 Smart notifications & reminders
-  🤖 AI-based productivity suggestions
-  📊 Advanced analytics & reports
+
+- 📱 Fully responsive mobile UI
+- 🔔 Smart notifications & reminders
+- 🤖 AI-based productivity suggestions
+- 📊 Advanced analytics & reports
 
 👨‍💻 Author
 
