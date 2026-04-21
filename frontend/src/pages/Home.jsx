@@ -106,7 +106,7 @@ useEffect(() => {
           {cardData.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              init ial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.2 }}
               whileHover={{
