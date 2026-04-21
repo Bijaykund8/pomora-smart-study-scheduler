@@ -26,7 +26,7 @@ It combines task planning, session tracking, and analytics into a single intuiti
 <img src="screenshots/forgotPassword.png" width="400"/>
 
 🔓 Logout
-<img src="screenshots/logOut.png" width="400"/>
+<img src="screenshots/logOut.png" width="800"/>
 
 ## 🛠️ Tech Stack
 
